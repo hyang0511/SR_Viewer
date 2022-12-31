@@ -21,6 +21,8 @@ crop_thickness = 2 # crop box thickness
 crop_colors = [(0, 0, 255), (0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 0, 255), (255, 255, 0)]  # crop box colors
 pad_size = 3 # pad size
 pad_color = (0, 0, 0) # pad colors
+mask_size = 40 # image/method name mask size (height)
+font_size = 35 # image/method name mask font size
 ```
 
 ## Usages
