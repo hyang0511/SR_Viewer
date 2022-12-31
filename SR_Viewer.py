@@ -44,7 +44,7 @@ def addText(image, text, color=(0, 0, 0)):
     image2 = Image.fromarray(image2)
     font = ImageFont.truetype('FreeMono.ttf', font_size)
     draw = ImageDraw.Draw(image2)
-    draw.text((image_w//2, mask_size//2), text, font=font, anchor='mm', fill=color, stroke_width=0)
+    draw.text((image_w//2, mask_size//2), text, font=font, anchor='mm', fill=color, stroke_width=1)
     image = np.asarray(image)
     image = np.vstack((image1, image2))
     return image
@@ -94,14 +94,14 @@ def reset_interface():
 result_names = ['hr', 'nearest', 'linear', 'area', 'cubic', 'lanczos']
 result_paths = ['results/hr', 'results/nearest', 'results/linear', 'results/area', 'results/cubic', 'results/lanczos']
 main_index = 0
-crop_num = 4
+crop_num = 5
 row_num = 1
 col_num = math.ceil(len(result_names) / row_num)
 
 # Other Configuration
 aspect_ratio = 0
 crop_thickness = 2
-crop_colors = [(0, 0, 255), (0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 0, 255), (255, 255, 0)]
+crop_colors = [(0, 0, 220), (0, 220, 0), (255, 0, 0), (220, 0, 220), (0, 220, 220)]
 pad_size = 3
 pad_color = (0, 0, 0)
 mask_size = 40
@@ -109,7 +109,6 @@ font_size = 35
 
 # Scan Images
 image_names = scan_image(result_paths[main_index])
-print(image_names)
 for i in range(len(image_names)):
     for j in range(len(result_names)):
         if not os.path.exists('%s/%s' % (result_paths[j], image_names[i])):
@@ -150,7 +149,7 @@ while True:
                 crop_y, crop_x = j // col_num + i * row_num, j % col_num
                 crop_y, crop_x = (crop_size + pad_size) * crop_y + canvas_y, (crop_size + pad_size) * crop_x + pad_size + canvas_x + canvas_image_w
                 crop = ncanvas[crop_y:crop_y+crop_size, crop_x:crop_x+crop_size]
-                crop = addText(crop, result_names[i], crop_colors[i])
+                crop = addText(crop, result_names[j], crop_colors[i])
                 ncanvas[crop_y:crop_y+crop_size, crop_x:crop_x+crop_size] = crop
     cv2.imshow('SR Viewer', ncanvas)
 
@@ -182,4 +181,3 @@ while True:
     if key == ord('q'):
         cv2.destroyAllWindows()
         break
-    
