@@ -28,7 +28,7 @@ font_size = 35 # image/method name mask font size
 ## Usages
 Setup all the configurations and run the script, you will see a window like this:
    
-<img src='figs/crop_fig.png' width=75%>
+<img src='figs/crop_fig.png' width=100%>
 
 The user can interact with the toolkit through following interactions:
 
@@ -45,7 +45,7 @@ The user can interact with the toolkit through following interactions:
 
 The cropped resutls will be saved in the `crops/[image_path]_[datetime]` folder:
 
-<img src='figs/saved_results.png' width=75%>
+<img src='figs/saved_results.png' width=100%>
 
 ## Contact
 If you meet any problems when using this toolkit, please feel free to raise an issue.
