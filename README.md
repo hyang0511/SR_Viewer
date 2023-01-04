@@ -6,6 +6,7 @@ This is a simple toolkit to view and crop image patches for image/video super-re
 ## Dependencies
 * python 3.X (recommend to use [Anaconda](https://www.anaconda.com/))
 * opencv-python
+* pillow
 
 ## Configurations
 ```python
