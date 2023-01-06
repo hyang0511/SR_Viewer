@@ -31,7 +31,7 @@ def scan_image(path, depth=0):
     if depth == 0:
         file_list.sort()
         for i in range(len(file_list)):
-            file_list[i] = file_list[i].lstrip(path)
+            file_list[i] = file_list[i].lstrip(path).lstrip('/')
     return file_list
 
 def addText(image, text, color=(0, 0, 0)):
